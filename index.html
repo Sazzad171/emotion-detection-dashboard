@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Emotion Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- nav top start -->
+  <section>
+    <nav class="navbar navbar-expand navbar-fixed-top navTop">
+      <a class="navbar-brand bebasNeue-bold" href="index.html">Emotion Analysis</a>
+      <button class="navbar-toggler" onclick="toggleHide()">
+          <i class="fas fa-bars"></i>
+      </button>
+      <a class="brndHide bebasNeue-bold" href="index.html">Emotion Analysis</a>
+      <div class="topnav-breadcrumb">
+        <span class="bebasNeue-book">Dashboard</span>
+        <i class="fas fa-chevron-right"></i>
+        <span class="bebasNeue-book">Smart Camera</span>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item navSearch">
+          <span class="bebasNeue-book">Smart Devices Framework</span>
+        </li>
+        <li class="nav-item navIcon dropdown">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-alt"></i>
+          </a>
+          <div class="dropdown-menu profileDrop" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Logout</a>    
+          </div>      
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <!-- nav top end -->
+  <!-- side menu start -->
+  <aside class="sideMenu" id="sideMnu">
+    <div class="sideBottom">
+      <ul>
+        <li class="menu-txt">
+          <a href="#">
+            <span class="bebasNeue-book pl-4">MENU</span>
+          </a>
+        </li>
+        <li>
+          <a class="aActive" href="./index.html">
+              <i class="fas fa-palette"></i>
+            <span class="bebasNeue-bold">DASHBOARD</span>
+          </a>
+        </li>
+        <li>
+          <a href="./analytics.html">
+              <i class="fas fa-table"></i>
+            <span class="bebasNeue-bold">ANALYTICS</span>
+          </a>
+        </li>
+        <li class="uiElmnt" onclick="uiShowHide()" id="drpwndLi">
+          <a id="brdrToggle">
+              <i class="fas fa-laptop"></i>
+            <span class="bebasNeue-bold" style="padding-right: 3.5rem;">SOME OTHER</span>
+            <i class="fas fa-angle-right arrwRght" id="arrRght"></i>
+          </a>
+          <ul class="sideDropdwn" id="uiDrpdwn">
+            <li>
+             <a href="">
+               <i class="far fa-dot-circle"></i>
+               <span class="bebasNeue-bold">OPTION ONE</span>
+             </a>
+            </li>
+            <li>
+             <a href="">
+               <i class="far fa-dot-circle"></i>
+               <span class="bebasNeue-bold">OPTION TWO</span>
+             </a>
+            </li>
+            <li>
+             <a href="">
+               <i class="far fa-dot-circle"></i>
+               <span class="bebasNeue-bold">OPTION THREE</span>
+             </a>
+            </li>
+            <li>
+             <a href="">
+               <i class="far fa-dot-circle"></i>
+               <span class="bebasNeue-bold">OPTION FOUR</span>
+             </a>  
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">
+              <i class="fas fa-chart-pie"></i>
+            <span class="bebasNeue-bold">ANOTHER OPTION</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+              <i class="fas fa-table"></i>
+            <span class="bebasNeue-bold">SETTINGS</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+              <i class="fas fa-file-alt"></i>
+            <span class="bebasNeue-bold">PROFILE</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <!-- side menu end -->
+  <!-- app content -->
+  <main class="appContent" id="appcontnt">
+    <!-- options start -->
+    <div class="options-top row">
+      <ul class="list-unstyled">
+        <li class="mx-2">
+          <select class="form-control bebasNeue-bold" name="" id="">
+            <option value="">SMART CAMERA</option>
+            <option value="">ANOTHER</option>
+            <option value="">ANOTHER</option>
+          </select>
+        </li>
+        <li class="mx-2">
+          <select class="form-control bebasNeue-bold" name="" id="">
+            <option value="">ALL DEVICES</option>
+            <option value="">ANOTHER</option>
+            <option value="">ANOTER</option>
+          </select>
+        </li>
+        <li class="mx-2">
+          <select class="form-control bebasNeue-bold" name="" id="">
+            <option value="">ANALYTICS</option>
+            <option value="">OTHER</option>
+            <option value="">OTHER</option>
+          </select>
+        </li>
+        <li class="hour">
+          <select class="form-control bebasNeue-bold" name="" id="">
+            <option value="">LAST HOUR</option>
+            <option value="">LAST DAY</option>
+            <option value="">LAST WEEK</option>
+          </select>
+        </li>
+        <li class="mx-2">
+          <p class="mb-0 bebasNeue-bold text">MANAGE DEVICE GROUPS</p>
+        </li>
+      </ul>
+    </div>
+    <!-- options end -->
+    <!-- video part start -->
+    <div class="row video-part">
+      <div class="col-md-8 video">
+        <div class="inner">
+          <video id="video" autoplay></video>
+          <div class="option">
+            <select class="form-control bebasNeue-bold" name="" id="">
+              <option value="">CAMERA OUTPUT</option>
+              <option value="">ANOTHER</option>
+              <option value="">ANOTHER</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- video output start -->
+      <div class="col-md-4 result">
+        <div class="emo-tracker">
+          <div class="option">
+            <select class="form-control bebasNeue-bold" name="" id="">
+              <option value="">EMOTION TRACKER</option>
+              <option value="">ANOTHER</option>
+              <option value="">ANOTHER</option>
+            </select>
+          </div>
+
+          <div class="left">
+            <img src="assets/images/face1.jpg" alt="" class="img-fluid">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="right">
+            <p class="bebasNeue-regular">DETECTED EMOTION</p>
+            <div class="det-emo">
+              <i class='far fa-grin-alt'></i> <br>
+              <span class="bebasNeue-regular">HAPPY</span>
+            </div>
+            <p class="bebasNeue-light">LAST 5 EMOTIONS DETECTED FROM THIS USER</p>
+            <div class="last-this">
+              <div class="single">
+                <i class='far fa-grin-alt'></i> <br>
+                <span class="bebasNeue-book">HAPPY</span>
+              </div>
+              <div class="single">
+                <i class='far fa-meh-blank'></i> <br>
+                <span class="bebasNeue-book">CONFUSED</span>
+              </div>
+              <div class="single">
+                <i class='far fa-frown'></i> <br>
+                <span class="bebasNeue-book">SAD</span>
+              </div>
+              <div class="single">
+                <i class='far fa-smile'></i> <br>
+                <span class="bebasNeue-book">NEUTRAL</span>
+              </div>
+              <div class="single">
+                <i class='far fa-grin-alt'></i> <br>
+                <span class="bebasNeue-book">HAPPY</span>
+              </div>
+            </div>
+            <p class="bebasNeue-light">LAST 5 EMOTIONS DETECTED</p>
+            <div class="last-all">
+              <div class="single">
+                <i class='far fa-grin-alt'></i> <br>
+                <span class="bebasNeue-book">HAPPY</span>
+              </div>
+              <div class="single">
+                <i class='far fa-meh-blank'></i> <br>
+                <span class="bebasNeue-book">CONFUSED</span>
+              </div>
+              <div class="single">
+                <i class='far fa-frown'></i> <br>
+                <span class="bebasNeue-book">SAD</span>
+              </div>
+              <div class="single">
+                <i class='far fa-smile'></i> <br>
+                <span class="bebasNeue-book">NEUTRAL</span>
+              </div>
+              <div class="single">
+                <i class='far fa-grin-alt'></i> <br>
+                <span class="bebasNeue-book">HAPPY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- user database part start -->
+        <div class="user-db">
+          <div class="option">
+            <select class="form-control bebasNeue-bold" name="" id="">
+              <option value="">USER DATABASE</option>
+              <option value="">ANOTHER</option>
+              <option value="">ANOTHER</option>
+            </select>
+          </div>
+
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+          <div class="single">
+            <img src="assets/images/face1.jpg" alt="">
+            <p class="sex bebasNeue-bold">SEX: FEMALE</p>
+            <p class="age bebasNeue-bold">AGE: 22-24</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- video part end -->
+  </main>
+
+  <!-- chart js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <!-- jquery js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- custom js -->
+  <script src="assets/js/scripts.js"></script>
+</body>
+</html>
